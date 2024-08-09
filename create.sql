@@ -1,3 +1,9 @@
+CREATE DATABASE cold_storage;
+CREATE USER 'cold_storage_adm'@'localhost';
+CREATE USER 'cold_storage_viewer'@'0.0.0.0';
+GRANT ALL PRIVILEGES ON cold_storage.* TO 'cold_storage_adm'@'localhost';
+GRANT SELECT, SHOW_VIEW ON cold_storage.* TO 'cold_storage_viewer'@'0.0.0.0';
+
 CREATE TABLE status_log (
     id CHAR(36) PRIMARY KEY DEFAULT UUID(),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
